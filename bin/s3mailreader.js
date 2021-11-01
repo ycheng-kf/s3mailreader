@@ -214,5 +214,6 @@ app.use('/node_modules', express.static(path.join(__dirname, '/../node_modules')
 
 // start the expressjs server on the port
 app.listen(port, function () {
-    console.log("s3mailreader is running on port " + port);
+    console.log(`Ready to read ses emails in s3://${argv.bucket}/${argv.directory}`);
+    console.log(`Please point your browser to http://localhost:${port}`);
 });
