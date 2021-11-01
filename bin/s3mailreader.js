@@ -64,16 +64,16 @@ const argv = require('yargs')
         type: 'int'
     }).argv;
 
-// check if region is passed as argument and is valid, otherwise check if is available a region in the ~/.aws/config 
+// check if region is passed as argument and is valid, otherwise check if is available a region in the ~/.aws/config
 if(typeof argv.region !== "undefined"){
     if (["us-east-2","us-east-1","us-west-1","us-west-2","ap-south-1","ap-northeast-3","ap-northeast-2","ap-southeast-1","ap-southeast-2","ap-northeast-1","ca-central-1","cn-north-1","cn-northwest-1","eu-central-1","eu-west-1","eu-west-2","eu-west-3","eu-north-1","sa-east-1"].includes(argv.region)){
         AWS.config.update({region: argv.region});
     } else {
-        console.error('Error: invalid AWS region'); 
+        console.error('Error: invalid AWS region');
         process.exit(1);
     }
 } else if (typeof AWS.config.region === "undefined") {
-    console.error('Error: missing AWS region in your configuration, check your .aws/config file or pass the region as argument'); 
+    console.error('Error: missing AWS region in your configuration, check your .aws/config file or pass the region as argument');
     process.exit(1);
 }
 
@@ -83,7 +83,7 @@ if (typeof argv.accessid !== "undefined" && typeof argv.secretkey !== "undefined
 } else {
     const awsCred = new AWS.SharedIniFileCredentials({profile: argv.credentials});
     if (awsCred.accessKeyId === undefined) {
-        console.error('Error: invalid AWS credentials, check your .aws/credentials file or pass the accessKeyId/secretAccessKey as arguments'); 
+        console.error('Error: invalid AWS credentials, check your .aws/credentials file or pass the accessKeyId/secretAccessKey as arguments');
         process.exit(1);
     } else {
         AWS.config.credentials = awsCred;
@@ -132,7 +132,7 @@ router.get('/mail/:encfilekey', async (req, res) => {
     };
 
     try {
-        
+
         // get and parse the email from s3
         const data = await s3.getObject(request).promise();
         var email = await simpleParser(data.Body);
@@ -179,7 +179,7 @@ router.get('/mail/:encfilekey/:checksum', async (req, res) => {
                 if( req.params.checksum === email.attachments[index].checksum ){
                     file = email.attachments[index];
                     break;
-                }                
+                }
             }
         }
 

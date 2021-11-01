@@ -27,10 +27,10 @@
                 <div class="col-12 pr-0">
                     <h4 class="p-2" ng-show="!mails">Loading...</h4>
                     <h4 class="p-2" ng-show="mails.length < 1">This bucket/folder doesn't contain any file, maybe you missed the -d (--directory) parameter?</h4>
-        
+
                     <div class="p-2 border-bottom email-item" ng-repeat="m in mails | orderBy:'-LastModified'" ng-click="open(m.Key, $index)" ng-class="{'email-item-selected':(selIndex === $index)}">
                         <p class="text-muted"><small><strong>size {{m.Size | bytes}}</strong></small></p>
-                        <h6>{{m.LastModified | date: 'dd-MM-yyyy HH:mm:ss Z'}}</h6>
+                        <h6>{{m.LastModified | date: 'MM-dd-yyyy HH:mm:ss Z'}}</h6>
                         <p class="text-muted"><small>{{m.Key}}</small></p>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                     <div class="mt-4 pt-4 border-top" ng-bind-html="(mail.html) ? mail.html : mail.textAsHtml"></div>
                 </div>
             </div>
-            
+
         </div>
 
     </div>
@@ -91,6 +91,9 @@ app.filter('bytes', function() {
 		return (bytes / Math.pow(1024, Math.floor(number))).toFixed(precision) +  ' ' + units[number];
 	}
 });
+app.config(['$sceProvider',function($sceProvider){
+    $sceProvider.enabled(false);
+}]);
 </script>
 </body>
 </html>

@@ -27,15 +27,15 @@
   "author": "davebra",
   "license": "MIT",
   "dependencies": {
-    "angular": "^1.7.8",
-    "angular-sanitize": "^1.7.8",
-    "aws-sdk": "^2.433.0",
-    "bootstrap": "^4.3.1",
-    "express": "^4.16.4",
-    "lodash": "^4.17.11",
-    "mailparser": "^2.6.0",
-    "purecss": "^1.0.0",
-    "yargs": "^13.2.2"
+    "angular": "^1.8.2",
+    "angular-sanitize": "^1.8.2",
+    "aws-sdk": "^2.1018.0",
+    "bootstrap": "^4.6.1",
+    "express": "^4.17.1",
+    "lodash": "^4.17.21",
+    "mailparser": "^3.4.0",
+    "purecss": "^2.0.6",
+    "yargs": "^17.2.1"
   },
   "bugs": {
     "url": "https://github.com/davebra/s3mailreader/issues"
